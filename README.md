@@ -1,44 +1,61 @@
-# PDF to Audiobook Converter
+# AI Audiobook Generator Platform
 
-This is a web application that allows you to convert a PDF file into an audiobook in your desired language. Simply upload a PDF file, select the language for the audiobook, and the application will generate an MP3 file that you can download and listen to.
+A professional web application that converts PDF, DOCX, and TXT documents into natural-sounding audiobooks using AI.
 
 ## Features
 
-- Upload a PDF file for conversion.
-- Choose the language for the audiobook.
-- Automatically extract the text from the PDF.
-- Convert the text to speech using the selected language.
-- Generate an MP3 file of the audiobook.
-- Download the audiobook file.
+- **AI Text-to-Speech**: Uses high-quality neural voices (Edge TTS).
+- **Smart Summarization**: Automatically generates a summary of the uploaded document.
+- **Multi-format Support**: PDF, DOCX, TXT.
+- **Customization**: Adjustable speed and multiple voice options.
+- **Modern UI**: Built with Next.js and Tailwind CSS.
 
-## Installation
+## Project Structure
 
-1. Clone this repository to your local machine.
+- `backend/`: FastAPI application (Python)
+- `frontend/`: Next.js application (TypeScript/React)
 
-2. Navigate to the project directory
+## Getting Started
 
-3. Install the required dependencies by running the following command:
+### Prerequisites
 
-   ```shell
-   pip install -r requirements.txt
-   ```
+- Docker & Docker Compose (Recommended)
+- OR Python 3.10+ and Node.js 18+
 
-## Usage
+### Running Locally (Docker)
 
-1. Run the `main.py` file to start the application:
+1. Create a `docker-compose.yml` in the root (optional, or run individually).
+2. Build and run:
 
-2. Open your web browser and navigate to `http://localhost:5000` to access the application.
+```bash
+# Backend
+cd backend
+docker build -t audiobook-backend .
+docker run -p 8000:8000 audiobook-backend
 
-3. Choose a PDF file using the file upload form.
+# Frontend
+cd frontend
+docker build -t audiobook-frontend .
+docker run -p 3000:3000 audiobook-frontend
+```
 
-4. Select the language for the audiobook from the available options.
+### Running Locally (Manual)
 
-5. Click the "Submit" button to start the conversion process.
+**Backend:**
+```bash
+cd backend
+pip install -r requirements.txt
+python -m app.main
+```
 
-6. Wait for the conversion to complete. Once done, the audiobook file will be automatically downloaded.
+**Frontend:**
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-7. Enjoy listening to your audiobook!
+## Deployment
 
-Note: Make sure you have an active internet connection during the conversion process as the `gtts` library requires an internet connection to fetch the required language files.
-
-Feel free to contribute to this project by submitting bug reports, feature requests, or pull requests.
+- **Backend**: Ready for Render/Railway (Python/FastAPI).
+- **Frontend**: Ready for Vercel (Next.js).
